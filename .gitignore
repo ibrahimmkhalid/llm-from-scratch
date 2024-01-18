@@ -1,0 +1,5 @@
+.nvim.lua
+.project_env
+
+venv/
+.ipynb_checkpoints/
