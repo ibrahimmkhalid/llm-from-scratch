@@ -9,8 +9,11 @@ This repo is following the guide from https://www.youtube.com/watch?v=UU1WVnMk4E
 In this repo:
 - ./shakespeare.txt - This is a sample text used for training a smaller scale model
 - ./bigram_testing.sync.ipynb - This notebook is where I test a basic BiGram model
+- ./gpt_shakespeare.sync.ipynb - Notebook implementing simple GPT model using entire works of shakespeare
 
 
 ### Prepare environment
-`pip install -r ./requirements-base.txt`  
-`pip install -r ./requirements-pytorch.txt`
+```
+pip install -r ./requirements-base.txt  
+pip install -r ./requirements-pytorch.txt
+```
