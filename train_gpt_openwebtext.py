@@ -3,7 +3,6 @@ import torch.nn as nn
 from torch.nn import functional as F
 import mmap
 import random
-import pickle
 import os
 
 
@@ -218,11 +217,11 @@ class GPTLanguageModel(nn.Module):
 
 model = GPTLanguageModel(vocab_size).to(device)
 
-model_pickle_path = './model.pkl'
+model_pickle_path = './model.pt'
 if os.path.exists(model_pickle_path):
     print('loading model parameters...')
     with open(model_pickle_path, 'rb') as f:
-        model = pickle.load(f)
+        model = torch.load(f, map_location=device)
     print('loaded successfully!')
 # create a PyTorch optimizer
 optimizer = torch.optim.AdamW(model.parameters(), lr=learning_rate)
@@ -243,5 +242,5 @@ for iter in range(max_iters):
 print(loss.item())
 
 with open(model_pickle_path, 'wb') as f:
-    pickle.dump(model, f)
+    torch.save(model, f)
 print('model saved')

@@ -2,7 +2,6 @@ import streamlit as st
 import torch
 import torch.nn as nn
 from torch.nn import functional as F
-import pickle
 import os
 
 st.title('LLM from scratch Demo')
@@ -169,11 +168,11 @@ encode = lambda s: [string_to_int[ch] for ch in s]
 decode = lambda x: ''.join([int_to_string[i] for i in x])
 
 
-model_pickle_path = './model.pkl'
+model_pickle_path = './model.pt'
 
 st.write('loading model parameters...')
 with open(model_pickle_path, 'rb') as f:
-    model = pickle.load(f)
+    model = torch.load(f, map_location=device)
 st.write('model loaded successfully!')
 
 prompt = ''
