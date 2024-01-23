@@ -169,19 +169,10 @@ decode = lambda x: ''.join([int_to_string[i] for i in x])
 
 model_pickle_path = './model.pkl'
 
-#print the current path
-st.write(os.getcwd())
-#print contents of current path
-st.write(os.listdir(os.getcwd()))
-
-try:
-    st.write('loading model parameters...')
-    with open(model_pickle_path, 'rb') as f:
-        model = pickle.load(f)
-    st.write('model loaded successfully!')
-except:
-    st.error('ERROR: model loading failed/model not found. Please run ./train_gpt_openwebtext.py first.')
-    exit()
+st.write('loading model parameters...')
+with open(model_pickle_path, 'rb') as f:
+    model = pickle.load(f)
+st.write('model loaded successfully!')
 
 prompt = ''
 prompt = st.text_area('Prompt:', value=prompt, height=100, max_chars=block_size - 1, key='prompt')
