@@ -1,3 +1,13 @@
+---
+title: Testing
+colorFrom: green
+colorTo: red
+sdk: streamlit
+sdk_version: 1.30.0
+app_file: app.py
+pinned: false
+---
+
 # LLM From Scratch
 _Ibrahim Khalid_
 
@@ -18,3 +28,7 @@ In this repo:
 pip install -r ./requirements-base.txt  
 pip install -r ./requirements-pytorch.txt
 ```
+---
+[On GitHub](https://github.com/ibrahimmkhalid/llm-from-scratch)  
+
+Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
