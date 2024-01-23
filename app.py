@@ -153,10 +153,10 @@ class GPTLanguageModel(nn.Module):
             index = torch.cat((index, index_next), dim=1) # (B, T+1)
         return index
 
-if not os.path.exists("./openwebtext/vocab.txt"):
+if not os.path.exists("./vocab.txt"):
     raise Exception("Please run extract.py first")
 chars = ""
-with open("./openwebtext/vocab.txt", 'r', encoding='utf-8') as f:
+with open("./vocab.txt", 'r', encoding='utf-8') as f:
     text = f.read()
     chars = sorted(list(set(text)))
 
