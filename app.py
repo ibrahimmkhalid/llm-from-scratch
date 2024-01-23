@@ -6,6 +6,7 @@ import pickle
 import os
 
 st.title('LLM from scratch Demo')
+st.subheader('Maintenance mode: please come back later')
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 block_size = 128
