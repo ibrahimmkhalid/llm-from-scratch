@@ -1,6 +1,6 @@
 ---
-title: Testing
-emoji: 🏆
+title: LLM From Scratch
+emoji: 🧠
 colorFrom: green
 colorTo: red
 sdk: streamlit
