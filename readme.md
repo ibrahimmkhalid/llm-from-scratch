@@ -10,6 +10,7 @@ In this repo:
 - ./shakespeare.txt - This is a sample text used for training a smaller scale model
 - ./bigram_testing.sync.ipynb - This notebook is where I test a basic BiGram model
 - ./gpt_shakespeare.sync.ipynb - Notebook implementing simple GPT model using entire works of shakespeare
+- ./gpt_openwebtext.sync.ipynb - Notebook implementing GPT model based on the [OpenWebText Corpus](https://skylion007.github.io/OpenWebTextCorpus/)
 
 
 ### Prepare environment
