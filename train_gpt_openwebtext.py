@@ -19,10 +19,10 @@ n_head = 8
 n_layer = 8
 dropout = 0.2
 
-if not os.path.exists("./openwebtext/vocab.txt") or not os.path.exists("./openwebtext/train_split.txt") or not os.path.exists("./openwebtext/val_split.txt"):
+if not os.path.exists("./vocab.txt") or not os.path.exists("./openwebtext/train_split.txt") or not os.path.exists("./openwebtext/val_split.txt"):
     raise Exception("Please run extract.py first")
 chars = ""
-with open("./openwebtext/vocab.txt", 'r', encoding='utf-8') as f:
+with open("./vocab.txt", 'r', encoding='utf-8') as f:
     text = f.read()
     chars = sorted(list(set(text)))
         

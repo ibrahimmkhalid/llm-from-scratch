@@ -13,7 +13,7 @@ tarxz_path = "./openwebtext.tar.xz"
 folder_path = "./openwebtext"
 output_file_train = "./openwebtext/train_split.txt"
 output_file_val = "./openwebtext/val_split.txt"
-vocab_file = "./openwebtext/vocab.txt"
+vocab_file = "./vocab.txt"
 
 if not os.path.exists(tarxz_path):
     print("Please download the openwebtext.tar.xz file from:")
