@@ -1,16 +1,3 @@
-# ---
-# jupyter:
-#   jupytext:
-#     text_representation:
-#       extension: .py
-#       format_name: percent
-#       format_version: '1.3'
-#       jupytext_version: 1.3.4
-#   kernelspec:
-#     display_name: Python 3
-#     language: python
-#     name: python3
-# ---
 import torch
 import torch.nn as nn
 from torch.nn import functional as F
@@ -20,7 +7,6 @@ import pickle
 import os
 
 
-# %%
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(device)
 block_size = 128
@@ -33,10 +19,8 @@ n_head = 8
 n_layer = 8
 dropout = 0.2
 
-# %%
 if not os.path.exists("./openwebtext/vocab.txt") or not os.path.exists("./openwebtext/train_split.txt") or not os.path.exists("./openwebtext/val_split.txt"):
     raise Exception("Please run extract.py first")
-# %%
 chars = ""
 with open("./openwebtext/vocab.txt", 'r', encoding='utf-8') as f:
     text = f.read()
@@ -44,17 +28,11 @@ with open("./openwebtext/vocab.txt", 'r', encoding='utf-8') as f:
         
 vocab_size = len(chars)
 
-# %%
-print(f"Vocab size: {vocab_size}")
-print(f"Text length: {len(text)}")
-
-# %%
 string_to_int = {ch: i for i, ch in enumerate(chars)}
 int_to_string = {i: ch for i, ch in enumerate(chars)}
 
 encode = lambda s: [string_to_int[ch] for ch in s]
 decode = lambda x: ''.join([int_to_string[i] for i in x])
-# %%
 # memory map for using small snippets of text from a single file of any size
 def get_random_chunk(split):
     filename = "./openwebtext/train_split.txt" if split == 'train' else "./openwebtext/val_split.txt"
@@ -85,7 +63,6 @@ def get_batch(split):
     x, y = x.to(device), y.to(device)
     return x, y
 
-# %%
 @torch.no_grad()
 def estimate_loss():
     out = {}
@@ -100,7 +77,6 @@ def estimate_loss():
     model.train()
     return out
 
-# %%
 
 class Head(nn.Module):
     """ one head of self-attention """
@@ -248,7 +224,6 @@ if os.path.exists(model_pickle_path):
     with open(model_pickle_path, 'rb') as f:
         model = pickle.load(f)
     print('loaded successfully!')
-# %%
 # create a PyTorch optimizer
 optimizer = torch.optim.AdamW(model.parameters(), lr=learning_rate)
 
@@ -270,9 +245,3 @@ print(loss.item())
 with open(model_pickle_path, 'wb') as f:
     pickle.dump(model, f)
 print('model saved')
-
-# %%
-prompt = 'Hello! Can you see me?'
-context = torch.tensor(encode(prompt), dtype=torch.long, device=device)
-generated_chars = decode(model.generate(context.unsqueeze(0), max_new_tokens=100)[0].tolist())
-print(generated_chars)
