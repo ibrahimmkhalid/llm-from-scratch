@@ -169,6 +169,11 @@ decode = lambda x: ''.join([int_to_string[i] for i in x])
 
 model_pickle_path = './model.pkl'
 
+#print the current path
+st.write(os.getcwd())
+#print contents of current path
+st.write(os.listdir(os.getcwd()))
+
 try:
     st.write('loading model parameters...')
     with open(model_pickle_path, 'rb') as f:
