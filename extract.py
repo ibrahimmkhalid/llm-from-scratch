@@ -15,6 +15,11 @@ output_file_train = "./openwebtext/train_split.txt"
 output_file_val = "./openwebtext/val_split.txt"
 vocab_file = "./openwebtext/vocab.txt"
 
+if not os.path.exists(tarxz_path):
+    print("Please download the openwebtext.tar.xz file from:")
+    print("https://skylion007.github.io/OpenWebTextCorpus/")
+    exit()
+
 # Extract the tar.xz file
 if not os.path.exists(folder_path):
     os.mkdir(folder_path)
