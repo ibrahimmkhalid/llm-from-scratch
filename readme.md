@@ -1,5 +1,6 @@
 ---
 title: Testing
+emoji: 🏆
 colorFrom: green
 colorTo: red
 sdk: streamlit
