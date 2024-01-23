@@ -9,6 +9,7 @@ st.title('LLM from scratch Demo')
 st.subheader('Maintenance mode: please come back later')
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+st.write(f"Using device: {device}")
 block_size = 128
 batch_size = 32
 max_iters = 4000
