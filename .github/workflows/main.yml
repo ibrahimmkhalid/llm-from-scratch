@@ -1,0 +1,15 @@
+name: Push to huggingface
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check LFS
+        uses: ./actions/size
+      - name: Push to HF
+        uses: ./actions/sync
