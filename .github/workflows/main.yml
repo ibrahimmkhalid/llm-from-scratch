@@ -10,6 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check LFS
-        uses: ./actions/size
+        uses: actions/size
       - name: Push to HF
-        uses: ./actions/sync
+        uses: actions/sync
