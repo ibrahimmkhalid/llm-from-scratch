@@ -12,11 +12,7 @@ pinned: false
 # LLM From Scratch
 _Ibrahim Khalid_
 
----
-This repo is outdated due to github LFS limits  
-The updated project is now available on [HuggingFace](https://huggingface.co/spaces/ibrahimmkhalid/llm-from-scratch)  
-
----
+The hosted project is available on [HuggingFace](https://huggingface.co/spaces/ibrahimmkhalid/llm-from-scratch)  
 
 The purpose of this project is to build a simple large language model from scratch.
 
