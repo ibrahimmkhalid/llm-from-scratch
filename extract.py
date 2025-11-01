@@ -2,12 +2,16 @@ import os
 import lzma
 from tqdm import tqdm
 
+
 def xz_files_in_dir(directory):
     files = []
     for filename in os.listdir(directory):
-        if filename.endswith(".xz") and os.path.isfile(os.path.join(directory, filename)):
+        if filename.endswith(".xz") and os.path.isfile(
+            os.path.join(directory, filename)
+        ):
             files.append(filename)
     return files
+
 
 tarxz_path = "./openwebtext.tar.xz"
 folder_path = "./openwebtext"
@@ -29,7 +33,7 @@ files = xz_files_in_dir(folder_path)
 total_files = len(files)
 
 # Calculate the split indices
-split_index = int(total_files * 0.9) # 90% for training
+split_index = int(total_files * 0.9)  # 90% for training
 files_train = files[:split_index]
 files_val = files[split_index:]
 
@@ -62,4 +66,4 @@ if not os.path.exists(output_file_val):
 if not os.path.exists(vocab_file):
     with open(vocab_file, "w", encoding="utf-8") as vfile:
         for char in vocab:
-            vfile.write(char + '\n')
+            vfile.write(char + "\n")
